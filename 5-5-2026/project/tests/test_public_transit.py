@@ -1,6 +1,6 @@
 import pytest
-from data.loader import load_dataset
-from algorithms.dynamic_programming import optimize_transit_schedule
+from src.data.loader import load_dataset
+from src.algorithms.dynamic_programming import optimize_transit_schedule
 
 def test_transit_dp_allocation():
     ds = load_dataset()

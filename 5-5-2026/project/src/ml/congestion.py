@@ -47,7 +47,7 @@ def _build_dataset():
     if not SKLEARN_OK:
         raise RuntimeError("pandas / scikit-learn not available")
 
-    from data.loader import load_dataset
+    from src.data.loader import load_dataset
     ds = load_dataset()
     G  = ds["graph_existing"]
 

@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Dict, List, Any
 import networkx as nx
 
-from algorithms.shortest_path import time_dependent_dijkstra
+from src.algorithms.shortest_path import time_dependent_dijkstra
 
 PERIODS = ["morning", "afternoon", "evening", "night"]
 

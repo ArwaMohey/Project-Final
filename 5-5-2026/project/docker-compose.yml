@@ -4,7 +4,9 @@ services:
   api:
     build: .
     container_name: cairo-api
-    command: uvicorn backend.api:app --host 0.0.0.0 --port 8000
+    command: uvicorn src.backend.api:app --host 0.0.0.0 --port 8000
+    environment:
+      - PYTHONPATH=/app:/app/src
     ports:
       - "8000:8000"
     healthcheck:
@@ -23,3 +25,4 @@ services:
       - api
     environment:
       - API_BASE=http://api:8000
+      - PYTHONPATH=/app:/app/src

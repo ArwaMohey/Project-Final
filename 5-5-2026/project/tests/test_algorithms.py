@@ -1,12 +1,12 @@
 """Sanity tests for all algorithms."""
 import math
-from data.loader import load_dataset
-from algorithms import (
+from src.data.loader import load_dataset
+from src.algorithms import (
     kruskal_mst, dijkstra, a_star, time_dependent_dijkstra,
     optimize_transit_schedule, road_maintenance_allocation,
     traffic_signal_optimization, MemoizedRouter,
 )
-from simulation import simulate_period, scenario_road_closure
+from src.simulation import simulate_period, scenario_road_closure
 
 DS = load_dataset()
 G  = DS["graph_existing"]

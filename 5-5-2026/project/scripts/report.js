@@ -363,11 +363,11 @@ const doc = new Document({
           "      api.py              — Backend orchestration and caching layer",
           "  tests/",
           "    test_algorithms.py    — Unit tests for all algorithms",
-          "    test_emergency.py     — Emergency routing integration tests",
+          "    tests/test_emergency.py — Emergency routing integration tests",
           "    benchmarks.py         — Performance benchmarks",
           "  scripts/",
-          "    check_connectivity.py — Graph connectivity validation",
-          "    check_nodes.py        — Node attribute validation",
+          "    scripts/check_connectivity.py — Graph connectivity validation",
+          "    scripts/check_nodes.py        — Node attribute validation",
         ].map(l => code(l)),
 
         h2("2.2  System Architecture Diagram (Mermaid)"),
@@ -1631,10 +1631,10 @@ const doc = new Document({
           ["Test Module", "Tests", "Coverage", "Status"],
           [
             ["test_algorithms.py", "12", "Dijkstra, A*, MST, DP, Greedy", "All Pass"],
-            ["test_emergency.py", "6", "Emergency dispatch, edge-disjoint paths", "All Pass"],
+            ["tests/test_emergency.py", "6", "Emergency dispatch, edge-disjoint paths", "All Pass"],
             ["benchmarks.py", "8", "Runtime and node expansion benchmarks", "All Pass"],
-            ["check_connectivity.py", "1", "Full graph strong connectivity", "Pass"],
-            ["check_nodes.py", "1", "Node attribute completeness", "Pass"],
+            ["scripts/check_connectivity.py", "1", "Full graph strong connectivity", "Pass"],
+            ["scripts/check_nodes.py", "1", "Node attribute completeness", "Pass"],
           ]
         ),
 

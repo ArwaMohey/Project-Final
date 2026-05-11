@@ -8,13 +8,13 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from data.loader import load_dataset
-from algorithms import (
+from src.data.loader import load_dataset
+from src.algorithms import (
     kruskal_mst, dijkstra, a_star, time_dependent_dijkstra,
     optimize_transit_schedule, road_maintenance_allocation,
     traffic_signal_optimization, MemoizedRouter,
 )
-from simulation import simulate_period
+from src.simulation import simulate_period
 
 DS = load_dataset(); G = DS["graph_existing"]; GF = DS["graph_full"]
 NODES = list(G.nodes())

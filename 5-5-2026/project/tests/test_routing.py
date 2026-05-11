@@ -9,14 +9,14 @@ import math
 import pytest
 import networkx as nx
 
-from data.loader import load_dataset
-from algorithms.shortest_path import (
+from src.data.loader import load_dataset
+from src.algorithms.shortest_path import (
     dijkstra,
     time_dependent_dijkstra,
     time_dependent_weight,
     MemoizedRouter,
 )
-from simulation import scenario_road_closure
+from src.simulation import scenario_road_closure
 
 
 # ──────────────────────────────────────────────────────────────

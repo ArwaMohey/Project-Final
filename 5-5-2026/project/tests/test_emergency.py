@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """Test script for emergency routing with 3 paths per request."""
 
-from data.loader import load_dataset
-from algorithms.greedy import emergency_priority
+from src.data.loader import load_dataset
+from src.algorithms.greedy import emergency_priority
 import networkx as nx
 
 DS = load_dataset()

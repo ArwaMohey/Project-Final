@@ -6,7 +6,7 @@
   "name": "project",
   "version": "1.0.0",
   "description": "CSE112 (AIU) — Design & Analysis of Algorithms project.",
-  "main": "report.js",
+  "main": "scripts/report.js",
   "directories": {
     "test": "tests"
   },

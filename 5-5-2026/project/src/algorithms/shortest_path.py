@@ -14,7 +14,7 @@ import heapq
 import math
 import networkx as nx
 
-from data.loader import haversine_km, edge_weight
+from src.data.loader import haversine_km, edge_weight
 
 
 # ---------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 """
 FastAPI backend exposing every algorithm as an HTTP endpoint.
 Run:
-    uvicorn backend.api:app --reload --port 8000
+    uvicorn src.backend.api:app --reload --port 8000
 """
 from __future__ import annotations
 from typing import List, Optional, Any
@@ -9,13 +9,13 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from data.loader import load_dataset
-from algorithms import (
+from src.data.loader import load_dataset
+from src.algorithms import (
     kruskal_mst, dijkstra, a_star, time_dependent_dijkstra,
     optimize_transit_schedule, road_maintenance_allocation,
     traffic_signal_optimization, emergency_priority, MemoizedRouter,
 )
-from simulation import simulate_period, scenario_road_closure, scenario_accident
+from src.simulation import simulate_period, scenario_road_closure, scenario_accident
 
 DS = load_dataset()
 G_EX  = DS["graph_existing"]
@@ -24,7 +24,7 @@ ROUTER = MemoizedRouter(G_EX)
 
 # Cache ML model
 try:
-    from ml.congestion import train_model
+    from src.ml.congestion import train_model
     ML_MODEL, ML_METRICS = train_model()
 except Exception:
     ML_MODEL, ML_METRICS = None, None
@@ -161,7 +161,7 @@ def predict_congestion(u: str, v: str, hour: int = 8):
     if ML_MODEL is None:
         raise HTTPException(500, "ML model unavailable")
     try:
-        from ml.congestion import predict_congestion as _pred
+        from src.ml.congestion import predict_congestion as _pred
     except Exception as e:
         raise HTTPException(500, f"ML unavailable: {e}")
     a, b = _coerce(u), _coerce(v)

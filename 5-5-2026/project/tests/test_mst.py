@@ -9,8 +9,8 @@ import math
 import pytest
 import networkx as nx
 
-from data.loader import load_dataset
-from algorithms.mst import kruskal_mst, _priority_factor, _DSU
+from src.data.loader import load_dataset
+from src.algorithms.mst import kruskal_mst, _priority_factor, _DSU
 
 
 # ──────────────────────────────────────────────────────────────
