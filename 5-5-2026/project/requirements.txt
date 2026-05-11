@@ -6,5 +6,5 @@ uvicorn[standard]
 pydantic
 streamlit
 pandas
-numpy>
+numpy
 scikit-learn
