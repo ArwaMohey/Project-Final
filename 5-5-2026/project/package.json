@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "docx": "^9.6.1",
+    "fs": "^0.0.1-security"
+  },
+  "name": "project",
+  "version": "1.0.0",
+  "description": "CSE112 (AIU) — Design & Analysis of Algorithms project.",
+  "main": "report.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

@@ -1,0 +1,10 @@
+networkx
+matplotlib
+plotly
+fastapi
+uvicorn[standard]
+pydantic
+streamlit
+pandas
+numpy>
+scikit-learn
