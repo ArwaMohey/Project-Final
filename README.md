@@ -558,8 +558,8 @@ This project demonstrates practical applications of:
 
 * Menna Allah Osama
 * Catherine Adel Zaki
-* Soha Hossam
 * Arwa Mohey
+* Soha Hossam
 * Samira Saed
 * Mariam Nady
 * Veronica Wassim
