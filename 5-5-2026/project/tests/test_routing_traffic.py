@@ -1,7 +1,7 @@
 import pytest
 import math
-from data.loader import load_dataset
-from algorithms.shortest_path import dijkstra, time_dependent_dijkstra
+from src.data.loader import load_dataset
+from src.algorithms.shortest_path import dijkstra, time_dependent_dijkstra
 
 def test_standard_dijkstra():
     ds = load_dataset()

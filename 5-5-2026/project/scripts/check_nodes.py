@@ -1,4 +1,4 @@
-from data.loader import load_dataset
+from src.data.loader import load_dataset
 DS = load_dataset()
 G = DS['graph_existing']
 print('Available nodes:')

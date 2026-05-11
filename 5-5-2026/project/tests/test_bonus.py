@@ -10,13 +10,13 @@ Bonus Tests (CSE112) — covers:
 """
 import math
 import pytest
-from data.loader import load_dataset
-from algorithms import (
+from src.data.loader import load_dataset
+from src.algorithms import (
     dijkstra, a_star, time_dependent_dijkstra,
     kruskal_mst, optimize_transit_schedule,
     road_maintenance_allocation, emergency_priority,
 )
-from simulation import simulate_period
+from src.simulation import simulate_period
 
 
 # ──────────────────────────────────────────────────────────────
@@ -42,20 +42,20 @@ def GF(DS):
 
 class TestMLCongestion:
     def test_model_trains_without_error(self):
-        from ml.congestion import train_model
+        from src.ml.congestion import train_model
         model, metrics = train_model()
         assert model is not None
         assert "mae_vph" in metrics
         assert metrics["mae_vph"] >= 0
 
     def test_mae_is_reasonable(self):
-        from ml.congestion import train_model
+        from src.ml.congestion import train_model
         _, metrics = train_model()
         # MAE should be below 300 vph (dataset range ~400-3800)
         assert metrics["mae_vph"] < 300
 
     def test_predict_returns_positive_float(self, G):
-        from ml.congestion import train_model, predict_congestion
+        from src.ml.congestion import train_model, predict_congestion
         model, _ = train_model()
         edge_data = {"distance": 5.0, "capacity": 3000, "condition": 7}
         vph = predict_congestion(model, edge_data, hour=8)
@@ -63,7 +63,7 @@ class TestMLCongestion:
         assert vph >= 0
 
     def test_morning_peak_higher_than_night(self, G):
-        from ml.congestion import train_model, predict_congestion
+        from src.ml.congestion import train_model, predict_congestion
         model, _ = train_model()
         edge = {"distance": 6.0, "capacity": 3000, "condition": 7}
         morning_vph = predict_congestion(model, edge, hour=8)
@@ -71,7 +71,7 @@ class TestMLCongestion:
         assert morning_vph > night_vph
 
     def test_predict_all_hours(self, G):
-        from ml.congestion import train_model, predict_congestion
+        from src.ml.congestion import train_model, predict_congestion
         model, _ = train_model()
         edge = {"distance": 4.0, "capacity": 2500, "condition": 8}
         for hour in range(0, 24, 3):
@@ -79,7 +79,7 @@ class TestMLCongestion:
             assert vph >= 0, f"Negative vph at hour {hour}"
 
     def test_training_data_counts(self):
-        from ml.congestion import train_model
+        from src.ml.congestion import train_model
         _, metrics = train_model()
         assert metrics["n_train"] > metrics["n_test"]
         assert metrics["n_train"] + metrics["n_test"] > 100

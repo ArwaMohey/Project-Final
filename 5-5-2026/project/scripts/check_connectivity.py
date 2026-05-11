@@ -1,4 +1,4 @@
-from data.loader import load_dataset
+from src.data.loader import load_dataset
 import networkx as nx
 DS = load_dataset()
 G = DS['graph_existing']

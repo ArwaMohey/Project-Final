@@ -1,8 +1,8 @@
 import pytest
 import math
-from data.loader import load_dataset
-from algorithms.shortest_path import a_star
-from algorithms.greedy import emergency_priority
+from src.data.loader import load_dataset
+from src.algorithms.shortest_path import a_star
+from src.algorithms.greedy import emergency_priority
 
 def test_astar_heuristic():
     ds = load_dataset()

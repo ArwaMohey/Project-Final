@@ -41,7 +41,7 @@ project/
 │   ├── test_algorithms.py
 │   └── benchmarks.py
 ├── app.py                # Streamlit dashboard
-├── REPORT.md             # Full technical report
+├── docs/REPORT.md        # Full technical report
 ├── Dockerfile
 ├── docker-compose.yml
 └── requirements.txt
@@ -58,7 +58,7 @@ PYTHONPATH=. streamlit run app.py
 # → open http://localhost:8501
 
 # REST API:
-PYTHONPATH=. uvicorn backend.api:app --reload
+PYTHONPATH=. uvicorn src.backend.api:app --reload
 # → open http://localhost:8000/docs
 
 # Tests + benchmarks:
@@ -109,7 +109,7 @@ docker run -p 8501:8501 cairo-transport
 | Greedy signal | O(K log K) | O(K) |
 | Simulation | O(D · (V+E) log V) | O(E) |
 
-See **[REPORT.md](./REPORT.md)** for the full technical report.
+See **[REPORT.md](./docs/REPORT.md)** for the full technical report.
 
 ## 🎓 Authored for
 

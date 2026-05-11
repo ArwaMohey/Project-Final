@@ -9,13 +9,13 @@ import math
 import pytest
 import networkx as nx
 
-from data.loader import (
+from src.data.loader import (
     build_graph,
     load_dataset,
     haversine_km,
     edge_weight,
 )
-import data.cairo_data as D
+import src.data.cairo_data as D
 
 
 # ──────────────────────────────────────────────────────────────

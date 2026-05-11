@@ -11,14 +11,14 @@ import pandas as pd
 import plotly.graph_objects as go
 import networkx as nx
 
-from data.loader import load_dataset
-from algorithms import (
+from src.data.loader import load_dataset
+from src.algorithms import (
     kruskal_mst, dijkstra, a_star, time_dependent_dijkstra,
     optimize_transit_schedule, road_maintenance_allocation,
     traffic_signal_optimization, emergency_priority, MemoizedRouter,
 )
-from simulation import simulate_period, scenario_road_closure, scenario_accident
-from visualization.interactive import (
+from src.simulation import simulate_period, scenario_road_closure, scenario_accident
+from src.visualization.interactive import (
     map_network, map_heatmap, bar_compare,
     _edge_segments, _node_traces, CAIRO_CENTER,
 )
@@ -209,7 +209,7 @@ with st.sidebar:
     st.markdown("---")
     st.markdown(
         '<div style="font-size:0.72rem;color:#475569">'
-        'REST API: <code>uvicorn backend.api:app</code><br>'
+        'REST API: <code>uvicorn src.backend.api:app</code><br>'
         '<a href="http://localhost:8000/docs" style="color:#38bdf8">localhost:8000/docs</a>'
         '</div>', unsafe_allow_html=True)
 
@@ -782,7 +782,7 @@ with tabs[9]:
     if "ml_model" not in st.session_state:
         st.markdown("**Model not yet trained.** Click below to train on the Cairo dataset.")
         if st.button("Train RandomForest Model", type="primary"):
-            from ml.congestion import train_model
+            from src.ml.congestion import train_model
             with st.spinner("Training on synthetic-expanded traffic data…"):
                 model, metrics = train_model()
             st.session_state["ml_model"]   = model
@@ -795,7 +795,7 @@ with tabs[9]:
         c2.metric("Train Samples", f"{m['n_train']:,}")
         c3.metric("Test Samples",  f"{m['n_test']:,}")
 
-        from ml.congestion import predict_congestion
+        from src.ml.congestion import predict_congestion
 
         edges_avail = [(u,v) for u,v in G.edges()
                        if u!=v and G[u][v]["kind"]=="existing"][:40]

@@ -1,6 +1,6 @@
 import pytest
-from data.loader import load_dataset
-from simulation.engine import simulate_period, scenario_road_closure
+from src.data.loader import load_dataset
+from src.simulation.engine import simulate_period, scenario_road_closure
 
 def test_traffic_simulation():
     ds = load_dataset()
